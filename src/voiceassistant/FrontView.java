@@ -88,30 +88,13 @@ public class FrontView extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFrame jf = new JFrame();
-        JPanel jp = new JPanel();
-        JLabel jl = new JLabel("File name");
-        JLabel jl1 = new JLabel("File extension");
-        JTextField fn = new JTextField(20);
-        JTextField ext = new JTextField(5);
-        JButton btn = new JButton("Search");
         
-        jp.add(jl);
-        jp.add(fn);
-        jp.add(jl1);
-        jp.add(ext);
-        jp.add(btn);
-        jf.add(jp);
-        
-        jf.setVisible(true);
-        jf.setSize(300,300);
-        jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//        try{
-//            search.FileSearch();
-//        }
-//        catch(Exception e){
-//            System.out.println(e);
-//        }
+        try{
+            search.FileSearch();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -151,7 +134,7 @@ public class FrontView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
