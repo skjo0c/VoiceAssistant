@@ -13,6 +13,9 @@ package voiceassistant;
 
 
 import javax.swing.*;
+import java.io.*;
+import com.sun.speech.freetts.*;
+
 public class FrontView extends javax.swing.JFrame {
 
 
@@ -82,15 +85,21 @@ public class FrontView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private static final String VOICENAME = "kevin8";
     
     FileSearch search = new FileSearch();
 
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+//        Voice voice;
+//        VoiceManager vm = VoiceManager.getInstance();
+//        voice = vm.getVoice(VOICENAME);
+//        voice.allocate();
         
         try{
             search.FileSearch();
+//            voice.speak(null);
         }
         catch(Exception e){
             System.out.println(e);
