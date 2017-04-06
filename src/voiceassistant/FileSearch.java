@@ -42,8 +42,8 @@ public class FileSearch{
                 btn.addActionListener(
                         new ActionListener() {
                         public void actionPerformed(ActionEvent ae) {
-                            String wholename = fn.getText().toUpperCase()+ "." + ext.getText();
-                            String fulldir = dir.getText().toUpperCase() + ":";
+                            String wholename = fn.getText().toUpperCase().trim()+ "." + ext.getText().trim();
+                            String fulldir = dir.getText().toUpperCase().trim() + ":";
                             FileSearch fs = new FileSearch();
                             try{
                                 fs.findFile(wholename,new File(fulldir));
@@ -75,10 +75,8 @@ public class FileSearch{
                 }
                 else if (name.equalsIgnoreCase(file2.getName()))
                 {                                                              
-                    System.out.println("File found at : "+file2.getParentFile());
-                    System.out.println("Path diectory: "+file2.getAbsolutePath());
                     String sayfound = "File found at " + file2.getParentFile();
-                    String saypath = "Path directory " + file2.getAbsolutePath();
+                    String saypath =  file2.getAbsolutePath();
                     
                     Voice voice;
                     VoiceManager vm = VoiceManager.getInstance();

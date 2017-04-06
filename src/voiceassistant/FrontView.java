@@ -85,8 +85,6 @@ public class FrontView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private static final String VOICENAME = "kevin8";
-    
     FileSearch search = new FileSearch();
 
     
