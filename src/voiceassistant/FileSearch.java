@@ -14,16 +14,10 @@ package voiceassistant;
 import java.io.*;
 import java.util.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.event.*;
+import javax.swing.*;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import com.sun.speech.freetts.*;
 
 public class FileSearch{
 
@@ -70,7 +64,7 @@ public class FileSearch{
             
         }
         
-
+    private static final String VOICENAME = "kevin16";
     public void findFile(String name,File file1)throws IOException{      
         File[] list = file1.listFiles();
         if(list!=null){                          
@@ -85,15 +79,27 @@ public class FileSearch{
                     System.out.println("Path diectory: "+file2.getAbsolutePath());
                     String sayfound = "File found at " + file2.getParentFile();
                     String saypath = "Path directory " + file2.getAbsolutePath();
-
+                    
+                    Voice voice;
+                    VoiceManager vm = VoiceManager.getInstance();
+                    voice = vm.getVoice(VOICENAME);
+                    voice.allocate();
+                    voice.setRate(100);
+                    voice.setPitch(100);
+                    try{
+                        voice.speak("File found at " + saypath);
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
                     String p1 = ""+file2.getParentFile();
                     File f2 = new File(p1);
                     Desktop.getDesktop().open(f2);                               
                 }                      
             }        
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Nothing found");
-        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Nothing found");
+//        }
     } 
 }
