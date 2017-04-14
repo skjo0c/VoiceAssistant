@@ -68,13 +68,14 @@ public class FileSearch{
     public void findFile(String name,File file1)throws IOException{      
         File[] list = file1.listFiles();
         if(list!=null){                          
-            for(File file2 : list){            
+            for(File file2 : list){ 
+                
                 if (file2.isDirectory())
                 {
-                    findFile(name,file2);             
+                    findFile(name,file2);
                 }
                 else if (name.equalsIgnoreCase(file2.getName()))
-                {                                                              
+                {   
                     String sayfound = "File found at " + file2.getParentFile();
                     String saypath =  file2.getAbsolutePath();
                     
@@ -93,7 +94,13 @@ public class FileSearch{
                     String p1 = ""+file2.getParentFile();
                     File f2 = new File(p1);
                     Desktop.getDesktop().open(f2);                               
-                }                      
+                }
+                else if(!file2.getName().equals(name)){
+                    for(int i = 0; i <= 1; i++){
+                        System.out.println("nothing found");
+                    }
+                   
+                }
             }        
         }
 //        else{
