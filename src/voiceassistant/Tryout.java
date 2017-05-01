@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package voiceassistant;
+package tryout;
 
 /**
  *
@@ -21,10 +21,11 @@ public class Tryout {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-         // Configuration Object
+    
+    public Tryout(){
+          // Configuration Object
         Configuration configuration = new Configuration();
+        
         try{
                // Set path to the acoustic model.
                configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
@@ -46,16 +47,17 @@ public class Tryout {
                     String command = result.getHypothesis();
                     String work = null;
                     Process p;
+                    Runtime rt = Runtime.getRuntime();
                     
                     //Match recognized speech with our commands
                         if(command.equalsIgnoreCase("open file manager")) {
                             work = "explorer";
                         } else if (command.equalsIgnoreCase("close file manager")) {
-                            work = "Taskkill /IM explorer.exe /F";
+                            rt.exec("Taskkill /IM explorer.exe /F");
                         } else if (command.equalsIgnoreCase("open browser")) {
                             work = "C://Program Files (x86)/Google/Chrome/Application/chrome.exe";
                         } else if (command.equalsIgnoreCase("close browser")) {
-                            work = "Taskkill/IM chrome.exe/F";
+                            rt.exec("Taskkill /IM chrome.exe /T /F");
                         }
                         //In case command recognized is none of the above hence work might be null
                         if(work != null) {
@@ -67,6 +69,11 @@ public class Tryout {
         catch(Exception e){
             System.out.println(e);
         }
+        
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Tryout tryout = new Tryout();
     }
     
 }

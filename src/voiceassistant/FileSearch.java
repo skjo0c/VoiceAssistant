@@ -65,7 +65,7 @@ public class FileSearch{
         }
         
     private static final String VOICENAME = "kevin16";
-    public void findFile(String name,File file1)throws IOException{      
+    public void findFile(String name,File file1)throws IOException{
         File[] list = file1.listFiles();
         if(list!=null){                          
             for(File file2 : list){ 
@@ -92,14 +92,10 @@ public class FileSearch{
                         System.out.println(e);
                     }
                     String p1 = ""+file2.getParentFile();
+                    String p2 = ""+file2.getAbsolutePath();
                     File f2 = new File(p1);
-                    Desktop.getDesktop().open(f2);                               
-                }
-                else if(!file2.getName().equals(name)){
-                    for(int i = 0; i <= 1; i++){
-                        System.out.println("nothing found");
-                    }
-                   
+                     Desktop.getDesktop().open(f2);
+                    
                 }
             }        
         }
