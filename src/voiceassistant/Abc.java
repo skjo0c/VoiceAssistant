@@ -15,14 +15,26 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.Port;
+import javax.sound.sampled.TargetDataLine;
+
 
 /**
  *
  * @author WhiteshadoW
  */
-public class Trying {
+public class Abc {
+    Thread speechThread;
+    Thread resourcesThread;
+    private LiveSpeechRecognizer recognize;
     private Logger logger = Logger.getLogger(getClass().getName());
-    public void Trying(){
+  
+    
+    public void Abc(){
          // Configuration Object
         Configuration configuration = new Configuration();
         
@@ -35,48 +47,70 @@ public class Trying {
                configuration.setLanguageModelPath("/Users/WhiteshadoW/Desktop/tryout/1684.lm");
                
                 //Recognizer Object, Pass the Configuration object
-                LiveSpeechRecognizer recognize = new LiveSpeechRecognizer(configuration);
+                recognize = new LiveSpeechRecognizer(configuration);
 
                 //Start Recognition Process (The bool parameter clears the previous cache if true)
                 recognize.startRecognition(true);
-                 logger.log(Level.INFO, "You can start to speak in 5sec...\n");
                 //Create SpeechResult Object
                  SpeechResult result;
-                //Checking if recognizer has recognized the speech
-                while ((result = recognize.getResult()) != null) {
-                    //Get the recognize speech
-                    
-                    String command = result.getHypothesis();
-                    String work = null;
-                    Process p;
-                    Runtime rt = Runtime.getRuntime();
-                    
-                    //Match recognized speech with our commands
+                 startSpeechThread();
 
-                    if(command.equalsIgnoreCase("Close")){
-                        String wholename = "atTechrise.jpg";
-                            String fulldir = "D:";
-                            FileSearch fs = new FileSearch();
-                            try{
-                                fs.findFile(wholename,new File(fulldir));
-                            }
-                            catch(Exception e){
-                                System.out.println(e);
-                            }
-                    }
-                    else if(command.equalsIgnoreCase("open")){
-                        java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://facebook.com"));
-                    }
-                    else if(command.equalsIgnoreCase("browser")){
-                        System.exit(0);
-                    }
-                    
-                }
+                 
         }
         catch(Exception e){
             System.out.println(e);
         }
     }
+    
+    protected void startSpeechThread() {
+
+
+		// initialise
+		speechThread = new Thread(() -> {
+			                 logger.log(Level.INFO, "You can start to speak...\n");
+			try {
+				 //Create SpeechResult Object
+                                SpeechResult result;
+                               //Checking if recognizer has recognized the speech
+                               while ((result = recognize.getResult()) != null) {
+                                   //Get the recognize speech
+
+                                   String command = result.getHypothesis();
+                                   String work = null;
+                                   Process p;
+                                   Runtime rt = Runtime.getRuntime();
+
+                                   //Match recognized speech with our commands
+
+                                   if(command.equalsIgnoreCase("Close")){
+                                       String wholename = "atTechrise.jpg";
+                                           String fulldir = "D:";
+                                           FileSearch fs = new FileSearch();
+                                           try{
+                                               fs.findFile(wholename,new File(fulldir));
+                                           }
+                                           catch(Exception e){
+                                               System.out.println(e);
+                                           }
+                                   }
+                                   else if(command.equalsIgnoreCase("browser")){
+                                       System.exit(0);
+                                   }
+
+                               }
+			} catch (Exception e) {
+                            System.out.println(e);
+			}
+
+			    System.out.println("stopped");
+		});
+
+		// Start
+		speechThread.start();
+
+	}
+    
+  
     
         private static final String VOICENAME = "kevin16";
     public void findFile(String name,File file1)throws IOException{

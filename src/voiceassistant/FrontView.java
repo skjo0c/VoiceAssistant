@@ -34,6 +34,7 @@ public class FrontView extends javax.swing.JFrame {
 //        greet.greet();
         
         setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
     /**
@@ -129,7 +130,7 @@ public class FrontView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-                new FrontView();               
+                    new FrontView();               
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
