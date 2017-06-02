@@ -1,0 +1,6 @@
+> Bean is a class.
+> It consits of collection of objects.
+> It has setter and getter methods.
+> These methods are used to return and fetch values.
+> With the help of java beans we can re-use block of code.
+> Java Bean is widely used for its reusability.
