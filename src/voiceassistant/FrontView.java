@@ -101,7 +101,7 @@ public class FrontView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    Trying search = new Trying();
+    VoiceCommands search = new VoiceCommands();
 
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -112,7 +112,7 @@ public class FrontView extends javax.swing.JFrame {
 //        voice.allocate();
         
         try{
-            search.Trying();
+            search.VoiceCommands();
 //            voice.speak(null);
         }
         catch(Exception e){
