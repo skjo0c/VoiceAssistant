@@ -97,7 +97,7 @@ public class VoiceCommands {
                                 System.out.println(e);
                             }
                     }
-                    else if(command.equalsIgnoreCase("abstract dot e x e")){
+                    else if(command.equalsIgnoreCase("abstract dot exe")){
                         String wholename = "abstract.jpg";
                             String fulldir = "D:";
                             FileSearch fs = new FileSearch();
@@ -117,7 +117,7 @@ public class VoiceCommands {
                     else if(command.equalsIgnoreCase("open youtube")){
                         java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://youtibe.com"));
                     }
-                    else if(command.equalsIgnoreCase("browser")){
+                    else if(command.equalsIgnoreCase("close program")){
                         System.exit(0);
                     }                    
                 }

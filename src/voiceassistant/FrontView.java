@@ -34,6 +34,7 @@ public class FrontView extends javax.swing.JFrame {
 //        greet.greet();
         
         setVisible(true);
+//        Selectingcommand sc = new Selectingcommand();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
@@ -47,22 +48,22 @@ public class FrontView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        src = new javax.swing.JButton();
+        sites = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        src.setText("Search");
+        src.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                srcActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Google");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        sites.setText("Google");
+        sites.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                sitesActionPerformed(evt);
             }
         });
 
@@ -72,9 +73,9 @@ public class FrontView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jButton1)
+                .addComponent(src)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(sites)
                 .addGap(74, 74, 74))
         );
         jPanel1Layout.setVerticalGroup(
@@ -82,8 +83,8 @@ public class FrontView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(src)
+                    .addComponent(sites))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
 
@@ -104,7 +105,7 @@ public class FrontView extends javax.swing.JFrame {
     VoiceCommands search = new VoiceCommands();
 
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void srcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcActionPerformed
         // TODO add your handling code here:
 //        Voice voice;
 //        VoiceManager vm = VoiceManager.getInstance();
@@ -119,11 +120,12 @@ public class FrontView extends javax.swing.JFrame {
             System.out.println(e);
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_srcActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void sitesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sitesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_sitesActionPerformed
 
    
     /**
@@ -134,8 +136,8 @@ public class FrontView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton sites;
+    public static javax.swing.JButton src;
     // End of variables declaration//GEN-END:variables
 }
