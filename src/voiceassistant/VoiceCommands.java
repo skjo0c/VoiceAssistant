@@ -9,6 +9,7 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+import edu.cmu.sphinx.api.Microphone;
 import edu.cmu.sphinx.api.SpeechResult;
 import java.awt.Desktop;
 import java.io.File;
@@ -22,7 +23,10 @@ import java.util.logging.Logger;
  */
 public class VoiceCommands {
     private final Logger logger = Logger.getLogger(getClass().getName());
+    Microphone m = new Microphone(48000, 16, true, false);
+   
     public void VoiceCommands(){
+        m.stopRecording();
          // Configuration Object
         Configuration configuration = new Configuration();
         
@@ -117,7 +121,7 @@ public class VoiceCommands {
                     else if(command.equalsIgnoreCase("open youtube")){
                         java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://youtibe.com"));
                     }
-                    else if(command.equalsIgnoreCase("close program")){
+                    else if(command.equalsIgnoreCase("close")){
                         System.exit(0);
                     }                    
                 }

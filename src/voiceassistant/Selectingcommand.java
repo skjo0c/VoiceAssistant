@@ -5,23 +5,22 @@
  */
 package voiceassistant;
 
+
+import edu.cmu.sphinx.api.Configuration;
+import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+import edu.cmu.sphinx.api.Microphone;
+import edu.cmu.sphinx.api.SpeechResult;
+import javax.sound.sampled.Line;
+
 /**
  *
  * @author WhiteshadoW
  */
-
-
-import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
-import edu.cmu.sphinx.api.SpeechResult;
-import java.io.File;
-import java.util.logging.Level;
-
 public class Selectingcommand {
-    public Selectingcommand(){
-         Configuration configuration = new Configuration();
-         FrontView fv = new FrontView();
-         
+    public void Selectingcommand(){
+         // Configuration Object
+        Configuration configuration = new Configuration();
+        
         try{
                // Set path to the acoustic model.
                configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
@@ -35,23 +34,19 @@ public class Selectingcommand {
 
                 //Start Recognition Process (The bool parameter clears the previous cache if true)
                 recognize.startRecognition(true);
+
                 //Create SpeechResult Object
                  SpeechResult result;
-                //Checking if recognizer has recognized the speech
-                while ((result = recognize.getResult()) != null) {
+                 result = recognize.getResult();
                     //Get the recognize speech
                     
                     String command = result.getHypothesis();
-                    String work = null;
-                    Process p;
-                    Runtime rt = Runtime.getRuntime();
                     
                     //Match recognized speech with our commands
 
-                    if(command.equalsIgnoreCase("search")){
-                        fv.src.doClick();
+                   if(command.equalsIgnoreCase("search")){
+                        FrontView.src.doClick();                       
                     }
-                }
         }
         catch(Exception e){
             System.out.println(e);

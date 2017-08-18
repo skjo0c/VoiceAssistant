@@ -34,8 +34,9 @@ public class FrontView extends javax.swing.JFrame {
 //        greet.greet();
         
         setVisible(true);
-//        Selectingcommand sc = new Selectingcommand();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Selectingcommand sc = new Selectingcommand();
+        sc.Selectingcommand();
     }
     
     /**
@@ -103,7 +104,6 @@ public class FrontView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     VoiceCommands search = new VoiceCommands();
-
     
     private void srcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcActionPerformed
         // TODO add your handling code here:
@@ -114,7 +114,6 @@ public class FrontView extends javax.swing.JFrame {
         
         try{
             search.VoiceCommands();
-//            voice.speak(null);
         }
         catch(Exception e){
             System.out.println(e);
