@@ -17,12 +17,19 @@ import java.io.*;
 import java.sql.*;
 import com.sun.speech.freetts.*;
 import edu.cmu.sphinx.api.*;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import sun.util.calendar.Gregorian;
+import edu.cmu.sphinx.recognizer.Recognizer;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.TargetDataLine;
+//import java.util.Calendar;
+//import java.util.GregorianCalendar;
+//import sun.util.calendar.Gregorian;
 
 public class FrontView extends javax.swing.JFrame {
-
+    Microphone microphone;
+    Recognizer recognizer;
     /**
      * Creates new form FrontView
      */
@@ -35,8 +42,8 @@ public class FrontView extends javax.swing.JFrame {
         
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        Selectingcommand sc = new Selectingcommand();
-        sc.Selectingcommand();
+//        Selectingcommand sc = new Selectingcommand();
+//        sc.Selectingcommand();
     }
     
     /**
@@ -114,6 +121,23 @@ public class FrontView extends javax.swing.JFrame {
         
         try{
             search.VoiceCommands();
+//            TargetDataLine line;
+//            AudioFormat format = new AudioFormat(16000.0f, 16, 2, true, true);
+//            DataLine.Info info = new DataLine.Info(TargetDataLine.class, format); // format is an AudioFormat object
+//            if (!AudioSystem.isLineSupported(info)) {
+//                System.out.println("supported");
+//            }
+//            // Obtain and open the line.
+//            try {
+//                line = (TargetDataLine) AudioSystem.getLine(info);
+//                line.flush();
+//                line.close();
+//                line.open();
+//                search.VoiceCommands();
+//            } catch (LineUnavailableException ex) {
+//                System.out.println("Deosn't work");
+//                System.exit(0);
+//            }
         }
         catch(Exception e){
             System.out.println(e);

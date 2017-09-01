@@ -11,6 +11,7 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.Microphone;
 import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.recognizer.Recognizer;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -22,21 +23,19 @@ import java.util.logging.Logger;
  * @author WhiteshadoW
  */
 public class VoiceCommands {
+
     private final Logger logger = Logger.getLogger(getClass().getName());
-    Microphone m = new Microphone(48000, 16, true, false);
-   
+
     public void VoiceCommands(){
-        m.stopRecording();
          // Configuration Object
         Configuration configuration = new Configuration();
-        
         try{
                // Set path to the acoustic model.
                configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
                // Set path to the dictionary.
-               configuration.setDictionaryPath("/Users/WhiteshadoW/Desktop/tryout/7905.dic");
+               configuration.setDictionaryPath("/Users/WhiteshadoW/Desktop/tryout/final.dic");
                // Set path to the language model.
-               configuration.setLanguageModelPath("/Users/WhiteshadoW/Desktop/tryout/7905.lm");
+               configuration.setLanguageModelPath("/Users/WhiteshadoW/Desktop/tryout/final.lm");
                
                 //Recognizer Object, Pass the Configuration object
                 LiveSpeechRecognizer recognize = new LiveSpeechRecognizer(configuration);
@@ -57,7 +56,7 @@ public class VoiceCommands {
                     
                     //Match recognized speech with our commands
 
-                    if(command.equalsIgnoreCase("cats dot jpg")){
+                    if(command.equalsIgnoreCase("search cats jpg")){
                         String wholename = "cats.jpg";
                             String fulldir = "D:";
                             FileSearch fs = new FileSearch();
@@ -68,8 +67,9 @@ public class VoiceCommands {
                                 System.out.println(e);
                             }
                     }
-                    else if(command.equalsIgnoreCase("skj one dot jpg")){
-                        String wholename = "skj1.jpg";
+                    
+                    else if(command.equalsIgnoreCase("search first docx")){
+                        String wholename = "first.docx";
                             String fulldir = "D:";
                             FileSearch fs = new FileSearch();
                             try{
@@ -79,38 +79,9 @@ public class VoiceCommands {
                                 System.out.println(e);
                             }
                     }
-                    else if(command.equalsIgnoreCase("skj two dot jpg")){
-                        String wholename = "skj2.jpg";
-                            String fulldir = "D:";
-                            FileSearch fs = new FileSearch();
-                            try{
-                                fs.findFile(wholename,new File(fulldir));
-                            }
-                            catch(Exception e){
-                                System.out.println(e);
-                            }
-                    }
-                    else if(command.equalsIgnoreCase("skj three dot jpg")){
-                        String wholename = "skj3.jpg";
-                            String fulldir = "D:";
-                            FileSearch fs = new FileSearch();
-                            try{
-                                fs.findFile(wholename,new File(fulldir));
-                            }
-                            catch(Exception e){
-                                System.out.println(e);
-                            }
-                    }
-                    else if(command.equalsIgnoreCase("abstract dot exe")){
-                        String wholename = "abstract.jpg";
-                            String fulldir = "D:";
-                            FileSearch fs = new FileSearch();
-                            try{
-                                fs.findFile(wholename,new File(fulldir));
-                            }
-                            catch(Exception e){
-                                System.out.println(e);
-                            }
+                    else if(command.equalsIgnoreCase("what time is it now")){
+                            Time time = new Time();
+                            time.Time();
                     }
                     else if(command.equalsIgnoreCase("open facebook")){
                         java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://facebook.com"));
@@ -119,7 +90,10 @@ public class VoiceCommands {
                         java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://mail.google.com"));
                     }
                     else if(command.equalsIgnoreCase("open youtube")){
-                        java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://youtibe.com"));
+                        java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://youtube.com"));
+                    }
+                    else if(command.equalsIgnoreCase("close browser")){
+                        rt.exec("Taskkill /IM chrome.exe /T /F");
                     }
                     else if(command.equalsIgnoreCase("close")){
                         System.exit(0);

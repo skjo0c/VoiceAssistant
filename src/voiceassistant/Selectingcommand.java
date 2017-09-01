@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,14 +11,23 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.Microphone;
 import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.recognizer.Recognizer;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
 import javax.sound.sampled.Line;
+import javax.sound.sampled.TargetDataLine;
+
 
 /**
  *
  * @author WhiteshadoW
  */
 public class Selectingcommand {
+    Microphone microphone;
+        Recognizer recognizer;
     public void Selectingcommand(){
+        
          // Configuration Object
         Configuration configuration = new Configuration();
         
@@ -45,7 +55,14 @@ public class Selectingcommand {
                     //Match recognized speech with our commands
 
                    if(command.equalsIgnoreCase("search")){
-                        FrontView.src.doClick();                       
+
+//                        recognizer.deallocate();
+//                        microphone.stopRecording();
+//                        
+//                        recognizer.allocate();
+//                        microphone.startRecording();
+                        
+                        FrontView.src.doClick();
                     }
         }
         catch(Exception e){
