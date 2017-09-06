@@ -33,9 +33,9 @@ public class VoiceCommands {
                // Set path to the acoustic model.
                configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
                // Set path to the dictionary.
-               configuration.setDictionaryPath("/Users/WhiteshadoW/Desktop/tryout/final.dic");
+               configuration.setDictionaryPath("/Users/WhiteshadoW/Desktop/VoiceAssistant/commands/final.dic");
                // Set path to the language model.
-               configuration.setLanguageModelPath("/Users/WhiteshadoW/Desktop/tryout/final.lm");
+               configuration.setLanguageModelPath("/Users/WhiteshadoW/Desktop/VoiceAssistant/commands/final.lm");
                
                 //Recognizer Object, Pass the Configuration object
                 LiveSpeechRecognizer recognize = new LiveSpeechRecognizer(configuration);

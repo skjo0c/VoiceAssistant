@@ -1,0 +1,7 @@
+search cats jpg
+search first docx
+open facebook
+open mail
+open youtube
+close browser
+what time is it now

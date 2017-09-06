@@ -1,0 +1,83 @@
+Language model created by QuickLM on Fri Sep  1 12:17:50 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 7 sentences and 18 words
+
+\data\
+ngram 1=18
+ngram 2=23
+ngram 3=19
+
+\1-grams:
+-0.9744 </s> -0.3010
+-0.9744 <s> -0.2523
+-1.8195 BROWSER -0.2523
+-1.8195 CATS -0.2944
+-1.8195 CLOSE -0.2944
+-1.8195 DOCX -0.2523
+-1.8195 FACEBOOK -0.2523
+-1.8195 FIRST -0.2944
+-1.8195 IS -0.2944
+-1.8195 IT -0.2944
+-1.8195 JPG -0.2523
+-1.8195 MAIL -0.2523
+-1.8195 NOW -0.2523
+-1.3424 OPEN -0.2808
+-1.5185 SEARCH -0.2877
+-1.8195 TIME -0.2944
+-1.8195 WHAT -0.2944
+-1.8195 YOUTUBE -0.2523
+
+\2-grams:
+-1.1461 <s> CLOSE 0.0000
+-0.6690 <s> OPEN 0.0000
+-0.8451 <s> SEARCH 0.0000
+-1.1461 <s> WHAT 0.0000
+-0.3010 BROWSER </s> -0.3010
+-0.3010 CATS JPG 0.0000
+-0.3010 CLOSE BROWSER 0.0000
+-0.3010 DOCX </s> -0.3010
+-0.3010 FACEBOOK </s> -0.3010
+-0.3010 FIRST DOCX 0.0000
+-0.3010 IS IT 0.0000
+-0.3010 IT NOW 0.0000
+-0.3010 JPG </s> -0.3010
+-0.3010 MAIL </s> -0.3010
+-0.3010 NOW </s> -0.3010
+-0.7782 OPEN FACEBOOK 0.0000
+-0.7782 OPEN MAIL 0.0000
+-0.7782 OPEN YOUTUBE 0.0000
+-0.6021 SEARCH CATS 0.0000
+-0.6021 SEARCH FIRST 0.0000
+-0.3010 TIME IS 0.0000
+-0.3010 WHAT TIME 0.0000
+-0.3010 YOUTUBE </s> -0.3010
+
+\3-grams:
+-0.3010 <s> CLOSE BROWSER
+-0.7782 <s> OPEN FACEBOOK
+-0.7782 <s> OPEN MAIL
+-0.7782 <s> OPEN YOUTUBE
+-0.6021 <s> SEARCH CATS
+-0.6021 <s> SEARCH FIRST
+-0.3010 <s> WHAT TIME
+-0.3010 CATS JPG </s>
+-0.3010 CLOSE BROWSER </s>
+-0.3010 FIRST DOCX </s>
+-0.3010 IS IT NOW
+-0.3010 IT NOW </s>
+-0.3010 OPEN FACEBOOK </s>
+-0.3010 OPEN MAIL </s>
+-0.3010 OPEN YOUTUBE </s>
+-0.3010 SEARCH CATS JPG
+-0.3010 SEARCH FIRST DOCX
+-0.3010 TIME IS IT
+-0.3010 WHAT TIME IS
+
+\end\
